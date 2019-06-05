@@ -3,8 +3,8 @@ namespace UberEat
 {
     public class UberEat
     {
-        IClient _Client;
-        IAvaibleBusinessProviders _AvailableRestaurants;
+        IClient _Client; //init??
+        IAvaibleBusinessProviders _AvailableRestaurants;//init?
         IBusinessProvider _RestaurantSelected;
         IShippableOrder _Order;
 
@@ -14,6 +14,8 @@ namespace UberEat
             _AvailableRestaurants.UpdateAvailableProviders();
         }
 
+        
+        // something let the user borrows the restaurants
         public void SelectRestaurant(IBusinessProvider RestaurantSelected)
         {
             _RestaurantSelected = RestaurantSelected;
@@ -33,7 +35,7 @@ namespace UberEat
                 return false;
             _Client.PayForOrder(_Order, _RestaurantSelected);
             _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order, _Client);
-            _Order.clear();
+            _Order.clear();//not a good idea. what if they want to see order history. 
             return true;
         }
     }
