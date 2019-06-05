@@ -27,6 +27,7 @@ namespace UberEat
         void AddPurchased(IPurchasable ToBePurchased);
         IPayment Price { get; }
         IBusinessProvider OrderProvider { get; }
+        void clear();
     }
 
     /* Reuse: IOrderPlacable represents any client ordering any good or services */

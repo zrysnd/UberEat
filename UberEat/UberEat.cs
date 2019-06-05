@@ -33,6 +33,7 @@ namespace UberEat
                 return false;
             _Client.PayForOrder(_Order, _RestaurantSelected);
             _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order, _Client);
+            _Order.clear();
             return true;
         }
     }
