@@ -13,7 +13,7 @@ namespace UberEat
 
     }
 
-    /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */
+    /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */  //anything that allows the user to borrows the purchasables???
     public interface IPurchasable
     {
         IPayment Price { get; }
@@ -25,7 +25,7 @@ namespace UberEat
     public interface IOrder
     {
         void AddPurchased(IPurchasable ToBePurchased);
-        IPayment Price { get; }
+        IPayment TotalPrice { get; }
         IBusinessProvider OrderProvider { get; }
         void clear();
     }
@@ -61,7 +61,7 @@ namespace UberEat
         ILocation Location { get; }
     }
 
-    /* Reuse: Any goods that can be shipped */
+    /* Reuse: Any goods that can be shipped */   //looks same as previous?
     public interface IShippable
     {
         /*Should I create another interface that's responsible to ship stuffs?*/
