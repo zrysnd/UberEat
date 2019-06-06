@@ -3,8 +3,8 @@ namespace UberEat
 {
     public class UberEat
     {
-        IClient _Client; //init??
-        IAvaibleBusinessProviders _AvailableRestaurants;//init?
+        IClient _Client; //init??-> added ClientLoggedIn
+        IAvaibleBusinessProviders _AvailableRestaurants;//init? -> added in constructor.
         IBusinessProvider _RestaurantSelected;
         IShippableOrder _Order;
 
