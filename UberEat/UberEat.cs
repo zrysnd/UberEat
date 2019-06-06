@@ -8,11 +8,19 @@ namespace UberEat
         IBusinessProvider _RestaurantSelected;
         IShippableOrder _Order;
 
-        public UberEat()
-        {   
-            //_Client = logged in user //Do I need to show how to implemetn this?..
+        public UberEat(IShippableOrder order, IAvaibleBusinessProviders restaurantsSearcher)
+        {
+            _Order = order;
+            _AvailableRestaurants = restaurantsSearcher;
+        }
+
+        public void ClientLoggedIn(IClient client)
+        {
+            _Client = client;
             _AvailableRestaurants.UpdateAvailableProviders();
         }
+
+        
 
         public void SelectRestaurant(IBusinessProvider RestaurantSelected)
         {

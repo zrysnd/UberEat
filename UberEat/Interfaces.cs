@@ -97,19 +97,19 @@ namespace UberEat
     }
 
 
-    //classes needed for main function test
+    /*classes needed for main function test */
     public class Client : IClient
     {
         public ILocation Location => throw new NotImplementedException();
 
         public void PayForOrder(IOrder order, IPaymentRecievable seller)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void PlaceOrder(IOrder order, IOrderReceivable orderReceiver)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 
@@ -119,17 +119,17 @@ namespace UberEat
 
         public void AcceptPayment(IPayment payment)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void AskProviderToDeliverOrderedGoods(IShippable order, IClient client)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public bool OrderAccepted(IOrder order)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 
@@ -140,4 +140,35 @@ namespace UberEat
         public IBusinessProvider OrderProvider => throw new NotImplementedException();
     }
 
+    public class FoodOrder : IShippableOrder
+    {
+        public IPayment Price => throw new NotImplementedException();
+
+        public IBusinessProvider OrderProvider => throw new NotImplementedException();
+
+        public ILocation Location => throw new NotImplementedException();
+
+        public void AddPurchased(IPurchasable ToBePurchased)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void clear()
+        {
+            //throw new NotImplementedException();
+        }
+    }
+
+    public class AvailableRestaurantsDetector : IAvaibleBusinessProviders
+    {
+        public void DisplayProviders()
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void UpdateAvailableProviders()
+        {
+            //throw new NotImplementedException();
+        }
+    }
 }
