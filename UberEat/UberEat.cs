@@ -31,10 +31,16 @@ namespace UberEat
             HandleOrder() in a while loop or other possible proper ways. */
             if (!_RestaurantSelected.OrderAccepted(_Order))
                 return false;
-            _Client.PayForOrder(_Order, _RestaurantSelected);
             _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order, _Client);
-            _Order.clear();
             return true;
         }
+
+        public void OrderReceivedByClent()
+        {
+            _Client.PayForOrder(_Order, _RestaurantSelected);
+            _Order.clear();
+        }
     }
+
+
 }

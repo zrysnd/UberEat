@@ -97,4 +97,47 @@ namespace UberEat
     }
 
 
+    //classes needed for main function test
+    public class Client : IClient
+    {
+        public ILocation Location => throw new NotImplementedException();
+
+        public void PayForOrder(IOrder order, IPaymentRecievable seller)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PlaceOrder(IOrder order, IOrderReceivable orderReceiver)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Restaurant : IBusinessProvider
+    {
+        public ILocation Location => throw new NotImplementedException();
+
+        public void AcceptPayment(IPayment payment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AskProviderToDeliverOrderedGoods(IShippable order, IClient client)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool OrderAccepted(IOrder order)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Food : IPurchasable
+    {
+        public IPayment Price => throw new NotImplementedException();
+
+        public IBusinessProvider OrderProvider => throw new NotImplementedException();
+    }
+
 }
