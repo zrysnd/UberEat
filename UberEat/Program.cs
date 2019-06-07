@@ -16,9 +16,13 @@ namespace UberEat
 
             /*Assuming Front-end will tell which restaurant, food is selected.*/
             uberEat.SelectRestaurant(new Restaurant());
+            //everything is awesome until this step. When you order food in reality, are you ordering food from a "new Restaurant()" ????
+            
             Console.WriteLine("Restaurant selected by user, Food menu displayed.");
 
             uberEat.AddFoodToOrder(new Food());
+            //everything is awesome until this step. When you order food in reality, are you ordering food from a "new Food()" ????
+
             Console.WriteLine("Food added to user's order.");
             uberEat.AddFoodToOrder(new Food());
             Console.WriteLine("Food added to user's order.");
