@@ -112,11 +112,7 @@ namespace UberEat
 
 
 
-
-
-
-
-
+    // your file name is Interfaces.cs, why am I seeing things below that are not Interfaces????
 
     /*classes needed for main function test */
     public class Client : IClient
