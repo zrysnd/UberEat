@@ -26,6 +26,11 @@ namespace UberEat
             return _AvailableRestaurants.ToBeDisplayed();
         }
 
+        public IToBeDisplayed OrderToBeDisplayed()
+        {
+            return _Order.ToBeDisplayed();
+        }
+
         public void SelectRestaurant(IBusinessProvider RestaurantSelected)
         {
             _RestaurantSelected = RestaurantSelected;

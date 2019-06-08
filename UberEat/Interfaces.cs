@@ -108,7 +108,6 @@ namespace UberEat
     public interface IAvaibleBusinessProviders : Idisplaiable
     {
         void UpdateAvailableProviders();
-        void DisplayProviders();
     }
 
 
@@ -156,7 +155,8 @@ namespace UberEat
 
         public IToBeDisplayed ToBeDisplayed()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Restaurant and its food displayed.");
+            return null;//faking implementation, won't use null in real code
         }
     }
 
@@ -168,7 +168,8 @@ namespace UberEat
 
         public IToBeDisplayed ToBeDisplayed()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Food of selected restaurants displayed.");
+            return null;//faking implementation, won't use null in real code
         }
     }
 
@@ -193,20 +194,17 @@ namespace UberEat
 
         public IToBeDisplayed ToBeDisplayed()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Order displayed. ");
+            return null;//faking implementation, won't use null in real code
         }
     }
 
     public class AvailableRestaurantsDetector : IAvaibleBusinessProviders
     {
-        public void DisplayProviders()
-        {
-            //throw new NotImplementedException();
-        }
-
         public IToBeDisplayed ToBeDisplayed()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Available restaurants displayed.");
+            return null;//faking implementation, won't use null in real code
         }
 
         public void UpdateAvailableProviders()
