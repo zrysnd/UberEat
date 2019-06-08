@@ -3,8 +3,8 @@ namespace UberEat
 {
     public class UberEat
     {
-        IClient _Client; //init??-> added ClientLoggedIn
-        IAvaibleBusinessProviders _AvailableRestaurants;//init? -> added in constructor.
+        IClient _Client; 
+        IAvaibleBusinessProviders _AvailableRestaurants;
         IBusinessProvider _RestaurantSelected;
         IShippableOrder _Order;
 
@@ -20,7 +20,7 @@ namespace UberEat
             _AvailableRestaurants.UpdateAvailableProviders();
         }
 
-        // something let the user borrows the restaurants
+        // something let the user borrows the restaurants-> added.
         public IToBeDisplayed RestaurantsToBeDisplayed()
         {
             return _AvailableRestaurants.ToBeDisplayed();
@@ -48,9 +48,6 @@ namespace UberEat
 
         public bool HandleOrder()
         {
-            /*Not sure about whether I need this line or not, I think the software need to
-            wait for restaurant to accept order, assuming the frontend calls this
-            HandleOrder() in a while loop or other possible proper ways. */
             if (!_RestaurantSelected.OrderAccepted(_Order))
                 return false;
             _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order, _Client);
@@ -59,7 +56,10 @@ namespace UberEat
             return true;
         }
 
-        public void OrderReceivedByClent() // how is OrderReceivedByClent related to HandleOrder ? 
+        public void OrderReceivedByClent() 
+            // how is OrderReceivedByClent related to HandleOrder ? 
+            /*^^^ HandleOrder stops at asking the restaurant to deliver, when the frontend found the order
+                  arrived to client, it can call this function, then app will process payment. */
         {
             _Client.PayForOrder(_Order, _RestaurantSelected);
         }
