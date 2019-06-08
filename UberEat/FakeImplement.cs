@@ -2,7 +2,7 @@
 namespace UberEat
 {
     // your file name is Interfaces.cs, why am I seeing things below that are not Interfaces????
-    //^^^ These are fake implementations for interfaces, used in main function. Moved to new file now.
+    //^^^ These are fake implementations for interfaces, used in main function. Moved to a new file now.
     public class Client : IClient
     {
         public ILocation Location => throw new NotImplementedException();
@@ -35,6 +35,11 @@ namespace UberEat
         public bool OrderAccepted(IOrder order)
         {
             return true;
+        }
+
+        public IPurchasable TheItemPurchasedByUser()
+        {
+            return new Food();
         }
 
         public IToBeDisplayed ToBeDisplayed()
@@ -85,6 +90,11 @@ namespace UberEat
 
     public class AvailableRestaurantsDetector : IAvaibleBusinessProviders
     {
+        public IBusinessProvider TheProviderSelectedByUser()
+        {
+            return new Restaurant();
+        }
+
         public IToBeDisplayed ToBeDisplayed()
         {
             Console.WriteLine("Available restaurants displayed.");

@@ -16,28 +16,33 @@ namespace UberEat
 
             /*Assuming Front-end will tell which restaurant, food is selected.*/
             uberEat.RestaurantsToBeDisplayed(); //return to something in real code.
-            uberEat.SelectRestaurant(new Restaurant());
+            IBusinessProvider restaurantSelectedByUser = uberEat.AvailableRestaurants.TheProviderSelectedByUser();
+            uberEat.SelectRestaurant(restaurantSelectedByUser);
 
             //everything is awesome until this step. When you order food in reality, are you ordering food from a "new Restaurant()" ????
-            
+            /*^^^ changed it to restaurantSelectedByUser, been lazy when faking the real code... */
 
 
             Console.WriteLine("Restaurant selected by user");
 
 
-            uberEat.FoodToBeDisplayed(); //return to something in real code.
-            uberEat.OrderToBeDisplayed();//return to something in real code.
-            uberEat.AddFoodToOrder(new Food());
+            uberEat.FoodToBeDisplayed(); //should return the display info to something in real code.
+            uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
+            IPurchasable foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser();
+            uberEat.AddFoodToOrder(foodSeleted);
             //everything is awesome until this step. When you order food in reality, are you ordering food from a "new Food()" ????
+            /*^^^ changed it to foodSeleted, been lazy when faking the real code... */
 
             Console.WriteLine("Food added to user's order.");
-            uberEat.OrderToBeDisplayed();//return to something in real code.
-            uberEat.AddFoodToOrder(new Food());
+            uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
+            foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser();
+            uberEat.AddFoodToOrder(foodSeleted);
             Console.WriteLine("Food added to user's order.");
-            uberEat.OrderToBeDisplayed();//return to something in real code.
-            uberEat.AddFoodToOrder(new Food());
+            uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
+            foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser();
+            uberEat.AddFoodToOrder(foodSeleted);
             Console.WriteLine("Food added to user's order.");
-            uberEat.OrderToBeDisplayed();//return to something in real code.
+            uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
 
             uberEat.HandleOrder();
             Console.WriteLine("Restaurant will deliver food.");

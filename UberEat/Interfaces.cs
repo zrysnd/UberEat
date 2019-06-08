@@ -99,7 +99,7 @@ namespace UberEat
     /*  Reuse: any good provider that need to deliver goods to client*/
     public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable, Idisplaiable
     {
-
+        IPurchasable TheItemPurchasedByUser();
         void AskProviderToDeliverOrderedGoods(IShippable order, IClient client );
     }
 
@@ -108,6 +108,7 @@ namespace UberEat
     public interface IAvaibleBusinessProviders : Idisplaiable
     {
         void UpdateAvailableProviders();
+        IBusinessProvider TheProviderSelectedByUser();
     }
 
 

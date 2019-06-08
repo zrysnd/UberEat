@@ -63,6 +63,16 @@ namespace UberEat
         {
             _Client.PayForOrder(_Order, _RestaurantSelected);
         }
+
+        public IAvaibleBusinessProviders AvailableRestaurants
+        {
+            get {return this._AvailableRestaurants; }
+        }
+
+        public IBusinessProvider SelectedRestaurant
+        {
+            get { return this._RestaurantSelected; }
+        }
     }
 
 
