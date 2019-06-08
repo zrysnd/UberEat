@@ -12,18 +12,24 @@ namespace UberEat
 
             IClient thisUser = new Client();
             uberEat.ClientLoggedIn(thisUser);
-            Console.WriteLine("User logged in. Available Restaurants displayed.");
+            Console.WriteLine("User logged in.");
 
             /*Assuming Front-end will tell which restaurant, food is selected.*/
+            uberEat.RestaurantsToBeDisplayed(); //return to something in real code.
             uberEat.SelectRestaurant(new Restaurant());
-            Console.WriteLine("Restaurant selected by user, Food menu displayed.");
+            Console.WriteLine("Restaurant selected by user");
 
+            uberEat.FoodToBeDisplayed(); //return to something in real code.
+            uberEat.OrderToBeDisplayed();//return to something in real code.
             uberEat.AddFoodToOrder(new Food());
             Console.WriteLine("Food added to user's order.");
+            uberEat.OrderToBeDisplayed();//return to something in real code.
             uberEat.AddFoodToOrder(new Food());
             Console.WriteLine("Food added to user's order.");
+            uberEat.OrderToBeDisplayed();//return to something in real code.
             uberEat.AddFoodToOrder(new Food());
             Console.WriteLine("Food added to user's order.");
+            uberEat.OrderToBeDisplayed();//return to something in real code.
 
             uberEat.HandleOrder();
             Console.WriteLine("Restaurant will deliver food.");

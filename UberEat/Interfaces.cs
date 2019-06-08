@@ -1,6 +1,19 @@
 ﻿using System;
 namespace UberEat
 {   
+    /*Reuse: An abstract concept containing info to be displayed*/
+    public interface IToBeDisplayed
+    {
+
+    }
+
+    /*Reuse: Any concept that (need to be displayed) returns IToBeDisplayed */
+    /*Added this to not repeat myself*/
+    public interface Idisplaiable
+    {
+        IToBeDisplayed ToBeDisplayed();
+    }
+
     /* Reuse: any payment, in any currency*/
     public interface IPayment
     {
@@ -14,16 +27,17 @@ namespace UberEat
     }
 
     /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */  
-    //anything that allows the user to borrows the purchasables???
-    public interface IPurchasable
+    //anything that allows the user to borrows the purchasables??? -> inherits Idisplaiable
+    public interface IPurchasable : Idisplaiable
     {
         IPayment Price { get; }
         IBusinessProvider OrderProvider { get; }
+
     }
 
     /*Reuse: an order containing one or more than one 'any kind of good or services 
       from the same seller. */
-    public interface IOrder
+    public interface IOrder : Idisplaiable
     {
         void AddPurchased(IPurchasable ToBePurchased);
         IPayment TotalPrice { get; }
@@ -83,7 +97,7 @@ namespace UberEat
     }
 
     /*  Reuse: any good provider that need to deliver goods to client*/
-    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable
+    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable, Idisplaiable
     {
 
         void AskProviderToDeliverOrderedGoods(IShippable order, IClient client );
@@ -91,15 +105,15 @@ namespace UberEat
 
     /* Reuse: A collection of good or service providers that can be displayed on a software,
      they provide some type of good or service: food, booking rooms, online groceries etc.  */
-    public interface IAvaibleBusinessProviders
+    public interface IAvaibleBusinessProviders : Idisplaiable
     {
         void UpdateAvailableProviders();
-        void DisplayProviders();
     }
 
 
+
     // your file name is Interfaces.cs, why am I seeing things below that are not Interfaces????
-    
+
     /*classes needed for main function test */
     public class Client : IClient
     {
@@ -134,6 +148,12 @@ namespace UberEat
         {
             return true;
         }
+
+        public IToBeDisplayed ToBeDisplayed()
+        {
+            Console.WriteLine("Restaurant and its food displayed.");
+            return null;//faking implementation, won't use null in real code
+        }
     }
 
     public class Food : IPurchasable
@@ -141,6 +161,12 @@ namespace UberEat
         public IPayment Price => throw new NotImplementedException();
 
         public IBusinessProvider OrderProvider => throw new NotImplementedException();
+
+        public IToBeDisplayed ToBeDisplayed()
+        {
+            Console.WriteLine("Food of selected restaurants displayed.");
+            return null;//faking implementation, won't use null in real code
+        }
     }
 
     public class FoodOrder : IShippableOrder
@@ -161,13 +187,20 @@ namespace UberEat
         {
             //throw new NotImplementedException();
         }
+
+        public IToBeDisplayed ToBeDisplayed()
+        {
+            Console.WriteLine("Order displayed. ");
+            return null;//faking implementation, won't use null in real code
+        }
     }
 
     public class AvailableRestaurantsDetector : IAvaibleBusinessProviders
     {
-        public void DisplayProviders()
+        public IToBeDisplayed ToBeDisplayed()
         {
-            //throw new NotImplementedException();
+            Console.WriteLine("Available restaurants displayed.");
+            return null;//faking implementation, won't use null in real code
         }
 
         public void UpdateAvailableProviders()
