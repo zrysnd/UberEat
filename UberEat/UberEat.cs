@@ -46,7 +46,7 @@ namespace UberEat
             return true;
         }
 
-        public void OrderReceivedByClent()
+        public void OrderReceivedByClent() // how is OrderReceivedByClent related to HandleOrder ? 
         {
             _Client.PayForOrder(_Order, _RestaurantSelected);
         }
