@@ -8,10 +8,10 @@ namespace UberEat
         IBusinessProvider _RestaurantSelected;
         IShippableOrder _Order;
 
-        public UberEat(IShippableOrder order, IAvaibleBusinessProviders restaurantsSearcher)
+        public UberEat(IShippableOrder order, IAvaibleBusinessProviders restaurantsMonitor)
         {
             _Order = order;
-            _AvailableRestaurants = restaurantsSearcher;
+            _AvailableRestaurants = restaurantsMonitor;
         }
 
         public void ClientLoggedIn(IClient client)
@@ -20,11 +20,20 @@ namespace UberEat
             _AvailableRestaurants.UpdateAvailableProviders();
         }
 
-        
         // something let the user borrows the restaurants
+        public IToBeDisplayed RestaurantsToBeDisplayed()
+        {
+            return _AvailableRestaurants.ToBeDisplayed();
+        }
+
         public void SelectRestaurant(IBusinessProvider RestaurantSelected)
         {
             _RestaurantSelected = RestaurantSelected;
+        }
+
+        public IToBeDisplayed FoodToBeDisplayed()
+        {
+            return _RestaurantSelected.ToBeDisplayed();
         }
 
         public void AddFoodToOrder(IPurchasable food  )

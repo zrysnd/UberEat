@@ -15,9 +15,11 @@ namespace UberEat
             Console.WriteLine("User logged in. Available Restaurants displayed.");
 
             /*Assuming Front-end will tell which restaurant, food is selected.*/
+            uberEat.RestaurantsToBeDisplayed(); //return to something in real code.
             uberEat.SelectRestaurant(new Restaurant());
             Console.WriteLine("Restaurant selected by user, Food menu displayed.");
 
+            uberEat.RestaurantsToBeDisplayed(); //return to something in real code.
             uberEat.AddFoodToOrder(new Food());
             Console.WriteLine("Food added to user's order.");
             uberEat.AddFoodToOrder(new Food());
