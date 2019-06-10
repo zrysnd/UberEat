@@ -45,7 +45,7 @@ namespace UberEat
     {
         public IPayment Price => throw new NotImplementedException();
 
-        public IBusinessProvider OrderProvider => throw new NotImplementedException();
+        public IBusinessProvider BusinessProvider => throw new NotImplementedException();
     }
 
     public class FoodOrder : IShippableOrder

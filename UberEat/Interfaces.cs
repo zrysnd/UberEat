@@ -25,7 +25,7 @@ namespace UberEat
     public interface IPurchasable : IDisplayable
     {
         IPayment Price { get; }
-        IBusinessProvider OrderProvider { get; }
+        IBusinessProvider BusinessProvider { get; }
 
 
     }
