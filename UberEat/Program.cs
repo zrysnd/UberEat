@@ -16,7 +16,8 @@ namespace UberEat
 
             /*Assuming Front-end will tell which restaurant, food is selected.*/
             uberEat.RestaurantsToBeDisplayed(); //return to something in real code.
-            IBusinessProvider restaurantSelectedByUser = uberEat.AvailableRestaurants.TheProviderSelectedByUser();
+            IAvaibleBusinessProviders avaibleRestaurants = uberEat.AvailableRestaurants;
+            IBusinessProvider restaurantSelectedByUser = avaibleRestaurants.TheProviderSelectedByUser();
             uberEat.SelectRestaurant(restaurantSelectedByUser);
 
             //everything is awesome until this step. When you order food in reality, are you ordering food from a "new Restaurant()" ????
