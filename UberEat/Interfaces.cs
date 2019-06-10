@@ -7,12 +7,6 @@ namespace UberEat
 
     }
 
-    /*Reuse: Any concept that (need to be displayed) returns IToBeDisplayed */
-    /*Added this to not repeat myself*/
-    public interface Idisplaiable
-    {
-        IToBeDisplayed ToBeDisplayed();
-    }
 
     /* Reuse: any payment, in any currency*/
     public interface IPayment
@@ -28,21 +22,23 @@ namespace UberEat
 
     /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */  
     //anything that allows the user to borrows the purchasables??? -> inherits Idisplaiable
-    public interface IPurchasable : Idisplaiable
+    public interface IPurchasable 
     {
         IPayment Price { get; }
         IBusinessProvider OrderProvider { get; }
+        IToBeDisplayed GetItemDisplayInfo();
 
     }
 
     /*Reuse: an order containing one or more than one 'any kind of good or services 
       from the same seller. */
-    public interface IOrder : Idisplaiable
+    public interface IOrder 
     {
         void AddPurchased(IPurchasable ToBePurchased);
         IPayment TotalPrice { get; }
         IBusinessProvider OrderProvider { get; }
         void clear();
+        IToBeDisplayed GetOrderDisplayInfo();
     }
 
     /* Reuse: IOrderPlacable represents any client ordering any good or services */
@@ -97,18 +93,20 @@ namespace UberEat
     }
 
     /*  Reuse: any good provider that need to deliver goods to client*/
-    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable, Idisplaiable
+    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable
     {
         IPurchasable TheItemPurchasedByUser();
         void AskProviderToDeliverOrderedGoods(IShippable order, IClient client );
+        IToBeDisplayed GetProviderDisplayInfo();
     }
 
     /* Reuse: A collection of good or service providers that can be displayed on a software,
      they provide some type of good or service: food, booking rooms, online groceries etc.  */
-    public interface IAvaibleBusinessProviders : Idisplaiable
+    public interface IAvaibleBusinessProviders
     {
         void UpdateAvailableProviders();
         IBusinessProvider TheProviderSelectedByUser();
+        IToBeDisplayed GetAvailableProvidersDisplayInfo();
     }
 
 

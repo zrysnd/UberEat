@@ -42,7 +42,7 @@ namespace UberEat
             return new Food();
         }
 
-        public IToBeDisplayed ToBeDisplayed()
+        public IToBeDisplayed GetProviderDisplayInfo()
         {
             Console.WriteLine("Restaurant and its food displayed.");
             return null;//faking implementation, won't use null in real code
@@ -55,7 +55,7 @@ namespace UberEat
 
         public IBusinessProvider OrderProvider => throw new NotImplementedException();
 
-        public IToBeDisplayed ToBeDisplayed()
+        public IToBeDisplayed GetItemDisplayInfo()
         {
             Console.WriteLine("Food of selected restaurants displayed.");
             return null;//faking implementation, won't use null in real code
@@ -81,7 +81,7 @@ namespace UberEat
             //throw new NotImplementedException();
         }
 
-        public IToBeDisplayed ToBeDisplayed()
+        public IToBeDisplayed GetOrderDisplayInfo()
         {
             Console.WriteLine("Order displayed. ");
             return null;//faking implementation, won't use null in real code
@@ -90,12 +90,13 @@ namespace UberEat
 
     public class AvailableRestaurantsDetector : IAvaibleBusinessProviders
     {
+
         public IBusinessProvider TheProviderSelectedByUser()
         {
             return new Restaurant();
         }
 
-        public IToBeDisplayed ToBeDisplayed()
+        public IToBeDisplayed GetAvailableProvidersDisplayInfo()
         {
             Console.WriteLine("Available restaurants displayed.");
             return null;//faking implementation, won't use null in real code
