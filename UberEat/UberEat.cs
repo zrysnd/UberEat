@@ -21,14 +21,16 @@ namespace UberEat
         }
 
         // something let the user borrows the restaurants-> added.
-        public IToBeDisplayed RestaurantsToBeDisplayed()
+        public IDisplayable RestaurantsToBeDisplayed()
         {
-            return _AvailableRestaurants.GetAvailableProvidersDisplayInfo();
+            Console.WriteLine("Available restaurants displayed.");
+            return _AvailableRestaurants;
         }
 
-        public IToBeDisplayed OrderToBeDisplayed()
+        public IDisplayable OrderToBeDisplayed()
         {
-            return _Order.GetOrderDisplayInfo();
+            Console.WriteLine("Order displayed. ");
+            return _Order;
         }
 
         public void SelectRestaurant(IBusinessProvider RestaurantSelected)
@@ -36,9 +38,10 @@ namespace UberEat
             _RestaurantSelected = RestaurantSelected;
         }
 
-        public IToBeDisplayed FoodToBeDisplayed()
+        public IDisplayable FoodToBeDisplayed()
         {
-            return _RestaurantSelected.GetProviderDisplayInfo();
+            Console.WriteLine("Restaurant and its food displayed.");
+            return _RestaurantSelected;
         }
 
         public void AddFoodToOrder(IPurchasable food  )

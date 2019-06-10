@@ -2,7 +2,7 @@
 namespace UberEat
 {   
     /*Reuse: An abstract concept containing info to be displayed*/
-    public interface IToBeDisplayed
+    public interface IDisplayable
     {
 
     }
@@ -14,31 +14,30 @@ namespace UberEat
 
     }
 
-    /*Reuse: any location, can be address, or a temporary location of an object.*/
-    public interface ILocation
+    /* Reuse: Location can be address or current location of any moving object*/
+    public interface ILocationProvidable
     {
 
     }
 
-    /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */  
+    /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */
     //anything that allows the user to borrows the purchasables??? -> inherits Idisplaiable
-    public interface IPurchasable 
+    public interface IPurchasable : IDisplayable
     {
         IPayment Price { get; }
         IBusinessProvider OrderProvider { get; }
-        IToBeDisplayed GetItemDisplayInfo();
+
 
     }
 
     /*Reuse: an order containing one or more than one 'any kind of good or services 
       from the same seller. */
-    public interface IOrder 
+    public interface IOrder : IDisplayable
     {
         void AddPurchased(IPurchasable ToBePurchased);
         IPayment TotalPrice { get; }
         IBusinessProvider OrderProvider { get; }
         void clear();
-        IToBeDisplayed GetOrderDisplayInfo();
     }
 
     /* Reuse: IOrderPlacable represents any client ordering any good or services */
@@ -66,18 +65,10 @@ namespace UberEat
     }
 
 
-    /* Reuse: Location can be address or current location of any moving object*/
-    public interface ILocationProvidable
+    /* Reuse: Any goods that can be shipped */
+    public interface IShippable: ILocationProvidable
     {
-        ILocation Location { get; }
-    }
-
-    /* Reuse: Any goods that can be shipped */   //looks same as previous? -> any objects that can be shipped.
-    public interface IShippable
-    {
-        /*Should I create another interface that's responsible to ship stuffs?*/
-        ILocation Location { get; }
-        //void ShipTo(ILocation target); commented out, I don't think I need it, but not sure.
+        void NeedToBeShippedTo(ILocationProvidable target);
     }
 
     /* Reuse: Any group of shippable goods from a same seller */
@@ -93,20 +84,18 @@ namespace UberEat
     }
 
     /*  Reuse: any good provider that need to deliver goods to client*/
-    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable
+    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable, IDisplayable
     {
         IPurchasable TheItemPurchasedByUser();
         void AskProviderToDeliverOrderedGoods(IShippable order, IClient client );
-        IToBeDisplayed GetProviderDisplayInfo();
     }
 
     /* Reuse: A collection of good or service providers that can be displayed on a software,
      they provide some type of good or service: food, booking rooms, online groceries etc.  */
-    public interface IAvaibleBusinessProviders
+    public interface IAvaibleBusinessProviders: IDisplayable
     {
         void UpdateAvailableProviders();
         IBusinessProvider TheProviderSelectedByUser();
-        IToBeDisplayed GetAvailableProvidersDisplayInfo();
     }
 
 

@@ -5,7 +5,6 @@ namespace UberEat
     //^^^ These are fake implementations for interfaces, used in main function. Moved to a new file now.
     public class Client : IClient
     {
-        public ILocation Location => throw new NotImplementedException();
 
         public void PayForOrder(IOrder order, IPaymentRecievable seller)
         {
@@ -20,7 +19,6 @@ namespace UberEat
 
     public class Restaurant : IBusinessProvider
     {
-        public ILocation Location => throw new NotImplementedException();
 
         public void AcceptPayment(IPayment payment)
         {
@@ -41,12 +39,6 @@ namespace UberEat
         {
             return new Food();
         }
-
-        public IToBeDisplayed GetProviderDisplayInfo()
-        {
-            Console.WriteLine("Restaurant and its food displayed.");
-            return null;//faking implementation, won't use null in real code
-        }
     }
 
     public class Food : IPurchasable
@@ -54,20 +46,12 @@ namespace UberEat
         public IPayment Price => throw new NotImplementedException();
 
         public IBusinessProvider OrderProvider => throw new NotImplementedException();
-
-        public IToBeDisplayed GetItemDisplayInfo()
-        {
-            Console.WriteLine("Food of selected restaurants displayed.");
-            return null;//faking implementation, won't use null in real code
-        }
     }
 
     public class FoodOrder : IShippableOrder
     {
 
         public IBusinessProvider OrderProvider => throw new NotImplementedException();
-
-        public ILocation Location => throw new NotImplementedException();
 
         public IPayment TotalPrice => throw new NotImplementedException();
 
@@ -81,10 +65,10 @@ namespace UberEat
             //throw new NotImplementedException();
         }
 
-        public IToBeDisplayed GetOrderDisplayInfo()
+
+        public void NeedToBeShippedTo(ILocationProvidable target)
         {
-            Console.WriteLine("Order displayed. ");
-            return null;//faking implementation, won't use null in real code
+            throw new NotImplementedException();
         }
     }
 
@@ -94,12 +78,6 @@ namespace UberEat
         public IBusinessProvider TheProviderSelectedByUser()
         {
             return new Restaurant();
-        }
-
-        public IToBeDisplayed GetAvailableProvidersDisplayInfo()
-        {
-            Console.WriteLine("Available restaurants displayed.");
-            return null;//faking implementation, won't use null in real code
         }
 
         public void UpdateAvailableProviders()
