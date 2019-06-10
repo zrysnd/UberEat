@@ -17,7 +17,7 @@ namespace UberEat
         public void ClientLoggedIn(IClient client)
         {
             _Client = client;
-            _AvailableRestaurants.UpdateAvailableProviders();
+            _AvailableRestaurants.UpdateAvailableProviders(_Client);
         }
 
         // something let the user borrows the restaurants-> added.

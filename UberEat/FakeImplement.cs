@@ -80,7 +80,7 @@ namespace UberEat
             return new Restaurant();
         }
 
-        public void UpdateAvailableProviders()
+        public void UpdateAvailableProviders(ILocationProvidable ClientLocation)
         {
             //throw new NotImplementedException();
         }

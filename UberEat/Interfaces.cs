@@ -90,11 +90,10 @@ namespace UberEat
         void AskProviderToDeliverOrderedGoods(IShippable order, IClient client );
     }
 
-    /* Reuse: A collection of good or service providers that can be displayed on a software,
-     they provide some type of good or service: food, booking rooms, online groceries etc.  */
+    /* Reuse: A collection of good or service providers that is available to the user.  */
     public interface IAvaibleBusinessProviders: IDisplayable
     {
-        void UpdateAvailableProviders();
+        void UpdateAvailableProviders(ILocationProvidable ClientLocation);
         IBusinessProvider TheProviderSelectedByUser();
     }
 
