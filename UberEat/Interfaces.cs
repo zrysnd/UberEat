@@ -35,6 +35,8 @@ namespace UberEat
     public interface IOrder : IDisplayable
     {
         void AddPurchased(IPurchasable ToBePurchased);
+        void RemovePurchasable(IPurchasable ToBeRemoved);
+        IPurchasable AccessPurchasable(int index);
         IMoney TotalPrice { get; }
         IBusinessProvider OrderProvider { get; }
         void clear();

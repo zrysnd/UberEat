@@ -55,6 +55,11 @@ namespace UberEat
 
         public IMoney TotalPrice => throw new NotImplementedException();
 
+        public IPurchasable AccessPurchasable(int index)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddPurchased(IPurchasable ToBePurchased)
         {
             //throw new NotImplementedException();
@@ -69,6 +74,11 @@ namespace UberEat
         public void NeedToBeShippedTo(ILocationProvidable target)
         {
             throw new NotImplementedException();
+        }
+
+        public void RemovePurchasable(IPurchasable ToBeRemoved)
+        {
+            Console.WriteLine("Selected food removed from order.");
         }
     }
 
