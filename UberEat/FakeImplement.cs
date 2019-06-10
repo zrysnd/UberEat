@@ -20,7 +20,7 @@ namespace UberEat
     public class Restaurant : IBusinessProvider
     {
 
-        public void AcceptPayment(IPayment payment)
+        public void AcceptPayment(IMoney payment)
         {
             //throw new NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace UberEat
 
     public class Food : IPurchasable
     {
-        public IPayment Price => throw new NotImplementedException();
+        public IMoney Price => throw new NotImplementedException();
 
         public IBusinessProvider BusinessProvider => throw new NotImplementedException();
     }
@@ -53,7 +53,7 @@ namespace UberEat
 
         public IBusinessProvider OrderProvider => throw new NotImplementedException();
 
-        public IPayment TotalPrice => throw new NotImplementedException();
+        public IMoney TotalPrice => throw new NotImplementedException();
 
         public void AddPurchased(IPurchasable ToBePurchased)
         {

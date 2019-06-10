@@ -9,7 +9,7 @@ namespace UberEat
 
 
     /* Reuse: any payment, in any currency*/
-    public interface IPayment
+    public interface IMoney
     {
 
     }
@@ -24,7 +24,7 @@ namespace UberEat
     //anything that allows the user to borrows the purchasables??? -> inherits Idisplaiable
     public interface IPurchasable : IDisplayable
     {
-        IPayment Price { get; }
+        IMoney Price { get; }
         IBusinessProvider BusinessProvider { get; }
 
 
@@ -35,7 +35,7 @@ namespace UberEat
     public interface IOrder : IDisplayable
     {
         void AddPurchased(IPurchasable ToBePurchased);
-        IPayment TotalPrice { get; }
+        IMoney TotalPrice { get; }
         IBusinessProvider OrderProvider { get; }
         void clear();
     }
@@ -61,7 +61,7 @@ namespace UberEat
     /* Reused: any good or service provider receiving payment */
     public interface IPaymentRecievable
     {
-        void AcceptPayment(IPayment payment);
+        void AcceptPayment(IMoney payment);
     }
 
 
