@@ -41,6 +41,8 @@ namespace UberEat
             foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser(thisUser);
             uberEat.AddFoodToOrder(foodSeleted);
             uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
+            Time timeLimitEnteredByUser = new Time();
+            uberEat.SetOrderTimeLimit(timeLimitEnteredByUser);
 
             uberEat.HandleOrder();
             Console.WriteLine("Restaurant will deliver food.");

@@ -90,6 +90,11 @@ namespace UberEat
             throw new NotImplementedException();
         }
 
+        public void CopyTime(ITimeLimited timeDuration)
+        {
+            //throw new NotImplementedException();
+        }
+
         public void CopyTo(IPurchasable[] array, int arrayIndex)
         {
             throw new NotImplementedException();
@@ -160,6 +165,21 @@ namespace UberEat
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
+        }
+    }
+
+    public class Time : ITimeLimited
+    {
+        public int Years { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Months { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Days { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Hours { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Minutes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Seconds { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void CopyTime(ITimeLimited timeDuration)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

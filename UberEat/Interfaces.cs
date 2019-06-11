@@ -32,6 +32,7 @@ namespace UberEat
         int Hours { get; set; }
         int Minutes { get; set; }
         int Seconds { get; set; }
+        void CopyTime(ITimeLimited timeDuration);
     }
 
     /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */
@@ -88,6 +89,8 @@ namespace UberEat
     /* Reuse: any client buying goods, and need the goods to be delivered. */
     public interface IClient: IOrderPlacable, IPayable, ISelfLocationProvidable
     {
+        /*Just realized this function might not be necessary, although order's time limit is 
+         * set by the user, the IClient interface doesn't have to change the time.*/
         void SetHowLongWaitingForOrder(ITimeLimited timeDuration, IShippableOrder order);
     }
 

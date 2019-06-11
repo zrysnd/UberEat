@@ -77,6 +77,12 @@ namespace UberEat
         {
             get { return this._RestaurantSelected; }
         }
+
+        public void SetOrderTimeLimit(ITimeLimited timeEnteredByUser)
+        {
+            _Order.CopyTime(timeEnteredByUser);
+            Console.WriteLine("Order's arrival time limit set by user");
+        }
     }
 
 
