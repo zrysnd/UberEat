@@ -9,7 +9,7 @@ namespace UberEat
     public class Client : IClient
     {
 
-        public void PayForOrder(IOrder order, IPaymentRecievable seller)
+        public void PayForOrder(IOrder order)
         {
             //throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace UberEat
     public class Restaurant : IBusinessProvider
     {
 
-        public void AcceptPayment(IMoney payment)
+        public void AcceptPayment(IMoney payment, IPayable payer)
         {
             //throw new NotImplementedException();
         }

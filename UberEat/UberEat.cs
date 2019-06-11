@@ -65,7 +65,7 @@ namespace UberEat
             /*^^^ HandleOrder stops at asking the restaurant to deliver, when the frontend found the order
                   arrived to client, it can call this function, then app will process payment. */
         {
-            _Client.PayForOrder(_Order, _RestaurantSelected);
+            _Client.PayForOrder(_Order);
         }
 
         public IAvaibleBusinessProviders AvailableRestaurants

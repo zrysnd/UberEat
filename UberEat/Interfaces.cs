@@ -63,13 +63,13 @@ namespace UberEat
     /* Reuse: IOrderPlacable represents any client paying for any good or services */
     public interface IPayable
     {
-        void PayForOrder(IOrder order, IPaymentRecievable seller);
+        void PayForOrder(IOrder order);
     }
 
     /* Reused: any good or service provider receiving payment */
     public interface IPaymentRecievable
     {
-        void AcceptPayment(IMoney payment);
+        void AcceptPayment(IMoney payment, IPayable payer);
     }
 
 
