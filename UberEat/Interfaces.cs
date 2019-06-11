@@ -14,7 +14,7 @@ namespace UberEat
 
     }
 
-    /* Reuse: Location can be address or current location of any moving object*/
+    /* Reuse: Any object that can provide its current location*/
     public interface ILocationProvidable
     {
 
