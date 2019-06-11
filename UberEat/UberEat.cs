@@ -4,27 +4,25 @@ namespace UberEat
     public class UberEat
     {
         private IClient _Client;
-        private IAvaibleBusinessProviders _AvailableRestaurants;
-        private IBusinessProvider _RestaurantSelected;
         private IShippableOrder _Order;
 
         public UberEat(IShippableOrder order, IAvaibleBusinessProviders restaurantsMonitor)
         {
             _Order = order;
-            _AvailableRestaurants = restaurantsMonitor;
+            AvailableRestaurants = restaurantsMonitor;
         }
 
         public void ClientLoggedIn(IClient client)
         {
             _Client = client;
-            _AvailableRestaurants.UpdateAvailableProviders(_Client);
+            AvailableRestaurants.UpdateAvailableProviders(_Client);
         }
 
         // something let the user borrows the restaurants-> added.
         public IDisplayable RestaurantsToBeDisplayed()
         {
             Console.WriteLine("Available restaurants displayed.");
-            return _AvailableRestaurants;
+            return AvailableRestaurants;
         }
 
         public IDisplayable OrderToBeDisplayed()
@@ -35,13 +33,13 @@ namespace UberEat
 
         public void SelectRestaurant(IBusinessProvider RestaurantSelected)
         {
-            _RestaurantSelected = RestaurantSelected;
+            SelectedRestaurant = RestaurantSelected;
         }
 
         public IDisplayable FoodToBeDisplayed()
         {
             Console.WriteLine("Restaurant and its food displayed.");
-            return _RestaurantSelected;
+            return SelectedRestaurant;
         }
 
         public void AddFoodToOrder(IPurchasable food  )
@@ -51,10 +49,10 @@ namespace UberEat
 
         public bool HandleOrder()
         {
-            if (!_RestaurantSelected.OrderAccepted(_Order, _Client))
+            if (!SelectedRestaurant.OrderAccepted(_Order, _Client))
                 return false;
             _Order.TargetLocation = _Client;
-            _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order);
+            SelectedRestaurant.AskProviderToDeliverOrderedGoods(_Order);
 //             _Order.clear();//not a good idea. what if they want to see order history.-> removed. 
 
             return true;
@@ -68,15 +66,9 @@ namespace UberEat
             _Client.PayForOrder(_Order);
         }
 
-        public IAvaibleBusinessProviders AvailableRestaurants
-        {
-            get {return this._AvailableRestaurants; }
-        }
+        public IAvaibleBusinessProviders AvailableRestaurants { get; }
 
-        public IBusinessProvider SelectedRestaurant
-        {
-            get { return this._RestaurantSelected; }
-        }
+        public IBusinessProvider SelectedRestaurant { get; private set; }
 
         public void SetOrderTimeLimit(ITimeLimited timeEnteredByUser)
         {
