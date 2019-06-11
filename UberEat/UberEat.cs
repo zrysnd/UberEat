@@ -51,7 +51,7 @@ namespace UberEat
 
         public bool HandleOrder()
         {
-            if (!_RestaurantSelected.OrderAccepted(_Order))
+            if (!_RestaurantSelected.OrderAccepted(_Order, _Client))
                 return false;
             _Order.TargetLocation = _Client;
             _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order);

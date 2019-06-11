@@ -57,7 +57,7 @@ namespace UberEat
     /*Reuse: Any organization, individual providing good or services clients require*/
     public interface IOrderReceivable
     {
-        bool OrderAccepted(IOrder order);
+        bool OrderAccepted(IOrder order, IOrderPlacable client);
     }
 
     /* Reuse: IOrderPlacable represents any client paying for any good or services */

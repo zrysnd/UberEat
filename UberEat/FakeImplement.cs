@@ -38,7 +38,7 @@ namespace UberEat
             //throw new NotImplementedException();
         }
 
-        public bool OrderAccepted(IOrder order)
+        public bool OrderAccepted(IOrder order, IOrderPlacable client)
         {
             return true;
         }
