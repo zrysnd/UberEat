@@ -34,15 +34,12 @@ namespace UberEat
             //everything is awesome until this step. When you order food in reality, are you ordering food from a "new Food()" ????
             /*^^^ changed it to foodSeleted, been lazy when faking the real code... */
 
-            Console.WriteLine("Food added to user's order.");
             uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
             foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser();
             uberEat.AddFoodToOrder(foodSeleted);
-            Console.WriteLine("Food added to user's order.");
             uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
             foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser();
             uberEat.AddFoodToOrder(foodSeleted);
-            Console.WriteLine("Food added to user's order.");
             uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
 
             uberEat.HandleOrder();

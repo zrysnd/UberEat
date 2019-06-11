@@ -46,7 +46,7 @@ namespace UberEat
 
         public void AddFoodToOrder(IPurchasable food  )
         {
-            _Order.AddPurchased(food);
+            _Order.Add(food);
         }
 
         public bool HandleOrder()

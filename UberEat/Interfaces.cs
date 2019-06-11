@@ -34,12 +34,8 @@ namespace UberEat
 
     /*Reuse: an order containing one or more than one 'any kind of good or services 
       from the same seller. */
-    public interface IOrder : IPurchasable
+    public interface IOrder : IPurchasable, ICollection<IPurchasable>
     {
-        void AddPurchased(IPurchasable ToBePurchased);
-        void RemovePurchasable(IPurchasable ToBeRemoved);
-        IPurchasable AccessPurchasable(int index);
-        void clear();
     }
 
     /* Reuse: IOrderPlacable represents any client ordering any good or services */

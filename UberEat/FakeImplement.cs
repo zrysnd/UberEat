@@ -59,24 +59,43 @@ namespace UberEat
 
         public ISelfLocationProvidable TargetLocation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public IPurchasable AccessPurchasable(int index)
+        public int Count => throw new NotImplementedException();
+
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        public void Add(IPurchasable item)
+        {
+            Console.WriteLine("Food added to user's order.");
+        }
+
+        public void Clear()
         {
             throw new NotImplementedException();
         }
 
-        public void AddPurchased(IPurchasable ToBePurchased)
+        public bool Contains(IPurchasable item)
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public void clear()
+        public void CopyTo(IPurchasable[] array, int arrayIndex)
         {
-            //throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public void RemovePurchasable(IPurchasable ToBeRemoved)
+        public IEnumerator<IPurchasable> GetEnumerator()
         {
-            Console.WriteLine("Selected food removed from order.");
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(IPurchasable item)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 
