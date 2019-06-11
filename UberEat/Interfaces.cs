@@ -23,6 +23,12 @@ namespace UberEat
 
     }
 
+    /*Represent any task that's time limited. It should have 
+     * functions returning the time info, but we can fill in latter, like IDisplayable*/
+    public interface ITimeLimited
+    {
+
+    }
 
     /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */
     //anything that allows the user to borrows the purchasables??? -> inherits Idisplaiable
@@ -41,7 +47,7 @@ namespace UberEat
     /* Reuse: IOrderPlacable represents any client ordering any good or services */
     public interface IOrderPlacable
     {
-        void PlaceOrder(IOrder order, IOrderReceivable orderReceiver);
+        void PlaceOrder(IOrder order);
     }
 
     /*Reuse: Any organization, individual providing good or services clients require*/

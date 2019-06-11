@@ -14,7 +14,7 @@ namespace UberEat
             //throw new NotImplementedException();
         }
 
-        public void PlaceOrder(IOrder order, IOrderReceivable orderReceiver)
+        public void PlaceOrder(IOrder order)
         {
             //throw new NotImplementedException();
         }
