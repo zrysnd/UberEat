@@ -20,25 +20,27 @@ namespace UberEat
 
     }
 
+    /*Any object that's responsible to ship something to somewhere*/
+    public interface IShipper
+    {
+
+    }
+
     /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */
     //anything that allows the user to borrows the purchasables??? -> inherits Idisplaiable
     public interface IPurchasable : IDisplayable
     {
         IMoney Price { get; }
         IBusinessProvider BusinessProvider { get; }
-
-
     }
 
     /*Reuse: an order containing one or more than one 'any kind of good or services 
       from the same seller. */
-    public interface IOrder : IDisplayable
+    public interface IOrder : IPurchasable
     {
         void AddPurchased(IPurchasable ToBePurchased);
         void RemovePurchasable(IPurchasable ToBeRemoved);
         IPurchasable AccessPurchasable(int index);
-        IMoney TotalPrice { get; }
-        IBusinessProvider OrderProvider { get; }
         void clear();
     }
 
@@ -70,7 +72,7 @@ namespace UberEat
     /* Reuse: Any goods that can be shipped */
     public interface IShippable: ILocationProvidable
     {
-        void NeedToBeShippedTo(ILocationProvidable target);
+        void AskToBeShippedTo(ILocationProvidable target);
     }
 
     /* Reuse: Any group of shippable goods from a same seller */

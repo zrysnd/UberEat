@@ -50,10 +50,9 @@ namespace UberEat
 
     public class FoodOrder : IShippableOrder
     {
+        public IMoney Price => throw new NotImplementedException();
 
-        public IBusinessProvider OrderProvider => throw new NotImplementedException();
-
-        public IMoney TotalPrice => throw new NotImplementedException();
+        public IBusinessProvider BusinessProvider => throw new NotImplementedException();
 
         public IPurchasable AccessPurchasable(int index)
         {
@@ -71,7 +70,7 @@ namespace UberEat
         }
 
 
-        public void NeedToBeShippedTo(ILocationProvidable target)
+        public void AskToBeShippedTo(ILocationProvidable target)
         {
             throw new NotImplementedException();
         }
