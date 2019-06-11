@@ -58,6 +58,9 @@ namespace UberEat
 
     public class FoodOrder : IShippableOrder
     {
+        private int _Hours;
+        private int _Minutes;
+
         public IMoney Price => throw new NotImplementedException();
 
         public IBusinessProvider BusinessProvider => throw new NotImplementedException();
@@ -71,8 +74,8 @@ namespace UberEat
         public int Years { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Months { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Days { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Hours { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Minutes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Hours { get => throw new NotImplementedException(); set { _Hours = value; } }
+        public int Minutes { get => throw new NotImplementedException(); set { _Minutes = value; } }
         public int Seconds { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Add(IPurchasable item)
@@ -90,10 +93,6 @@ namespace UberEat
             throw new NotImplementedException();
         }
 
-        public void CopyTime(ITimeLimited timeDuration)
-        {
-            //throw new NotImplementedException();
-        }
 
         public void CopyTo(IPurchasable[] array, int arrayIndex)
         {
@@ -173,13 +172,8 @@ namespace UberEat
         public int Years { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Months { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Days { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Hours { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Minutes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Hours { get { return 0; } set => throw new NotImplementedException(); }
+        public int Minutes { get { return 0; } set => throw new NotImplementedException(); }
         public int Seconds { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public void CopyTime(ITimeLimited timeDuration)
-        {
-            //throw new NotImplementedException();
-        }
     }
 }

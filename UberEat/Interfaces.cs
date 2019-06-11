@@ -32,7 +32,6 @@ namespace UberEat
         int Hours { get; set; }
         int Minutes { get; set; }
         int Seconds { get; set; }
-        void CopyTime(ITimeLimited timeDuration);
     }
 
     /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */

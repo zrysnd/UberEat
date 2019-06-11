@@ -72,7 +72,8 @@ namespace UberEat
 
         public void SetOrderTimeLimit(ITimeLimited timeEnteredByUser)
         {
-            _Order.CopyTime(timeEnteredByUser);
+            _Order.Hours = timeEnteredByUser.Hours;
+            _Order.Minutes = timeEnteredByUser.Minutes;
             Console.WriteLine("Order's arrival time limit set by user");
         }
     }
