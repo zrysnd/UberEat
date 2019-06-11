@@ -3,10 +3,10 @@ namespace UberEat
 {
     public class UberEat
     {
-        IClient _Client; 
-        IAvaibleBusinessProviders _AvailableRestaurants;
-        IBusinessProvider _RestaurantSelected;
-        IShippableOrder _Order;
+        private IClient _Client;
+        private IAvaibleBusinessProviders _AvailableRestaurants;
+        private IBusinessProvider _RestaurantSelected;
+        private IShippableOrder _Order;
 
         public UberEat(IShippableOrder order, IAvaibleBusinessProviders restaurantsMonitor)
         {
