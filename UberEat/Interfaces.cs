@@ -89,9 +89,6 @@ namespace UberEat
     /* Reuse: any client buying goods, and need the goods to be delivered. */
     public interface IClient: IOrderPlacable, IPayable, ISelfLocationProvidable
     {
-        /*Just realized this function might not be necessary, although order's time limit is 
-         * set by the user, the IClient interface doesn't have to change the time.*/
-        void SetHowLongWaitingForOrder(ITimeLimited timeDuration, IShippableOrder order);
     }
 
     /*  Reuse: any good provider that need to deliver goods to client*/
