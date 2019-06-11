@@ -54,6 +54,8 @@ namespace UberEat
 
         public IBusinessProvider BusinessProvider => throw new NotImplementedException();
 
+        public ILocationProvidable TargetLocation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public IPurchasable AccessPurchasable(int index)
         {
             throw new NotImplementedException();
@@ -67,12 +69,6 @@ namespace UberEat
         public void clear()
         {
             //throw new NotImplementedException();
-        }
-
-
-        public void AskToBeShippedTo(ILocationProvidable target)
-        {
-            throw new NotImplementedException();
         }
 
         public void RemovePurchasable(IPurchasable ToBeRemoved)
