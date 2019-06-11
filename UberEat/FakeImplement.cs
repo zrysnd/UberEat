@@ -152,7 +152,7 @@ namespace UberEat
             throw new NotImplementedException();
         }
 
-        public IBusinessProvider TheProviderSelectedByUser()
+        public IBusinessProvider TheProviderSelectedByUser(IClient user)
         {
             return new Restaurant();
         }

@@ -102,7 +102,7 @@ namespace UberEat
     public interface IAvaibleBusinessProviders: IDisplayable, ICollection<IBusinessProvider>
     {
         void UpdateAvailableProviders(ISelfLocationProvidable ClientLocation);
-        IBusinessProvider TheProviderSelectedByUser();
+        IBusinessProvider TheProviderSelectedByUser(IClient user);
     }
 
 }
