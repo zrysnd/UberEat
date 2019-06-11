@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace UberEat
 {   
     /*Reuse: An abstract concept containing info to be displayed*/
@@ -15,7 +18,7 @@ namespace UberEat
     }
 
     /* Reuse: Any object that can provide its current location*/
-    public interface ILocationProvidable
+    public interface ISelfLocationProvidable
     {
 
     }
@@ -65,9 +68,9 @@ namespace UberEat
 
 
     /* Reuse: Any goods that can be shipped */
-    public interface IShippable: ILocationProvidable
+    public interface IShippable: ISelfLocationProvidable
     {
-        ILocationProvidable TargetLocation { get; set; }
+        ISelfLocationProvidable TargetLocation { get; set; }
     }
 
     /* Reuse: Any group of shippable goods from a same seller */
@@ -77,26 +80,23 @@ namespace UberEat
     }
 
     /* Reuse: any client buying goods, and need the goods to be delivered. */
-    public interface IClient: IOrderPlacable, IPayable, ILocationProvidable
+    public interface IClient: IOrderPlacable, IPayable, ISelfLocationProvidable
     {
 
     }
 
     /*  Reuse: any good provider that need to deliver goods to client*/
-    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ILocationProvidable, IDisplayable
+    public interface IBusinessProvider: IOrderReceivable, IPaymentRecievable, ISelfLocationProvidable, IDisplayable
     {
         IPurchasable TheItemPurchasedByUser();
         void AskProviderToDeliverOrderedGoods(IShippable order, IClient client );
     }
 
     /* Reuse: A collection of good or service providers that is available to the user.  */
-    public interface IAvaibleBusinessProviders: IDisplayable
+    public interface IAvaibleBusinessProviders: IDisplayable, ICollection<IBusinessProvider>
     {
-        void UpdateAvailableProviders(ILocationProvidable ClientLocation);
+        void UpdateAvailableProviders(ISelfLocationProvidable ClientLocation);
         IBusinessProvider TheProviderSelectedByUser();
     }
-
-
-
 
 }
