@@ -38,7 +38,7 @@ namespace UberEat
             return true;
         }
 
-        public IPurchasable TheItemPurchasedByUser()
+        public IPurchasable TheItemPurchasedByUser(IClient user)
         {
             return new Food();
         }
