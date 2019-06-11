@@ -53,7 +53,8 @@ namespace UberEat
         {
             if (!_RestaurantSelected.OrderAccepted(_Order))
                 return false;
-            _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order, _Client);
+            _Order.TargetLocation = _Client;
+            _RestaurantSelected.AskProviderToDeliverOrderedGoods(_Order);
 //             _Order.clear();//not a good idea. what if they want to see order history.-> removed. 
 
             return true;

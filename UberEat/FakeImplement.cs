@@ -33,7 +33,7 @@ namespace UberEat
             //throw new NotImplementedException();
         }
 
-        public void AskProviderToDeliverOrderedGoods(IShippable order, IClient client)
+        public void AskProviderToDeliverOrderedGoods(IShippable order)
         {
             //throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace UberEat
 
         public IBusinessProvider BusinessProvider => throw new NotImplementedException();
 
-        public ISelfLocationProvidable TargetLocation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ISelfLocationProvidable TargetLocation { get => throw new NotImplementedException(); set => Console.WriteLine("Order Target location set to client."); }
 
         public int Count => throw new NotImplementedException();
 

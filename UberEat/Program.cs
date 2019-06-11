@@ -48,9 +48,6 @@ namespace UberEat
             uberEat.OrderReceivedByClent();
             Console.WriteLine("Order arrived, payment completed.");
 
-            DateTime now = DateTime.Now;
-
-            Console.WriteLine("Today's date: {0}", now.Date);
         }
     }
 }
