@@ -18,6 +18,11 @@ namespace UberEat
         {
             //throw new NotImplementedException();
         }
+
+        public void SetHowLongWaitingForOrder(ITimeLimited timeDuration, IShippableOrder order)
+        {
+            Console.WriteLine("Order urgency set by user.");
+        }
     }
 
     public class Restaurant : IBusinessProvider
@@ -62,6 +67,13 @@ namespace UberEat
         public int Count => throw new NotImplementedException();
 
         public bool IsReadOnly => throw new NotImplementedException();
+
+        public int Years { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Months { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Days { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Hours { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Minutes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Seconds { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Add(IPurchasable item)
         {

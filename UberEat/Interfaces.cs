@@ -23,11 +23,15 @@ namespace UberEat
 
     }
 
-    /*Represent any task that's time limited. It should have 
-     * functions returning the time info, but we can fill in latter, like IDisplayable*/
+    /*Represent any task that's time limited. Time is time duration*/
     public interface ITimeLimited
     {
-
+        int Years { get; set; }
+        int Months { get; set; }
+        int Days { get; set; }
+        int Hours { get; set; }
+        int Minutes { get; set; }
+        int Seconds { get; set; }
     }
 
     /*Reuse: IPurchasable can be any good or services(ex: booking hotel, goods from grocery stores..) that can be purchased */
@@ -70,7 +74,7 @@ namespace UberEat
 
 
     /* Reuse: Any goods that can be shipped */
-    public interface IShippable: ISelfLocationProvidable
+    public interface IShippable: ISelfLocationProvidable, ITimeLimited
     {
         ISelfLocationProvidable TargetLocation { get; set; }
     }
@@ -84,7 +88,7 @@ namespace UberEat
     /* Reuse: any client buying goods, and need the goods to be delivered. */
     public interface IClient: IOrderPlacable, IPayable, ISelfLocationProvidable
     {
-
+        void SetHowLongWaitingForOrder(ITimeLimited timeDuration, IShippableOrder order);
     }
 
     /*  Reuse: any good provider that need to deliver goods to client*/
