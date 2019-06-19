@@ -27,6 +27,9 @@ namespace UberEat
 
     public class Restaurant : IBusinessProvider
     {
+        public Restaurant()
+        {
+        }
 
         public void AcceptPayment(IMoney payment, IPayable payer)
         {
@@ -43,9 +46,10 @@ namespace UberEat
             return true;
         }
 
-        public IPurchasable TheItemPurchasedByUser(IClient user)
+        public ICollection<IPurchasable> TheItemPurchasedByUser(IClient user)
         {
-            return new Food();
+            ICollection < IPurchasable > GroupOfFood = new List<IPurchasable>();
+            return GroupOfFood;
         }
     }
 

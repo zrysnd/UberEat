@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace UberEat
 {
@@ -29,7 +30,7 @@ namespace UberEat
 
             uberEat.FoodToBeDisplayed(); //should return the display info to something in real code.
             uberEat.OrderToBeDisplayed();//should return the display info to something in real code.
-            IPurchasable foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser(thisUser);
+            ICollection <IPurchasable> foodSeleted = uberEat.SelectedRestaurant.TheItemPurchasedByUser(thisUser);
             uberEat.AddFoodToOrder(foodSeleted);
             //everything is awesome until this step. When you order food in reality, are you ordering food from a "new Food()" ????
             /*^^^ changed it to foodSeleted, been lazy when faking the real code... */

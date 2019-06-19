@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace UberEat
 {
     public class UberEat
@@ -42,9 +44,10 @@ namespace UberEat
             return SelectedRestaurant;
         }
 
-        public void AddFoodToOrder(IPurchasable food  )
+        public void AddFoodToOrder( ICollection<IPurchasable> food  )
         {
-            _Order.Add(food);
+            foreach ( IPurchasable foodItem in food)
+                _Order.Add(foodItem);
         }
 
         public bool HandleOrder()
